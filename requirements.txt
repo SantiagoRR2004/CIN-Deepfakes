@@ -1,0 +1,10 @@
+tqdm
+numpy
+numexpr
+h5py
+opencv-python
+ffmpeg-python
+scikit-image
+scipy
+colorama
+pyqt5

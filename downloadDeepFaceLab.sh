@@ -31,7 +31,7 @@ if [ -d "$DIR_NAME" ]; then
     fi
 else
     echo "Directory '$DIR_NAME' does not exist. Cloning repository..."
-    git clone "$REPO_URL" "$DIR_NAME"
+    git clone --depth 1 "$REPO_URL" "$DIR_NAME"
     cd "$DIR_NAME" || exit
     update_repo
 fi
