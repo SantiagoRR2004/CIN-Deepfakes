@@ -35,3 +35,6 @@ else
     cd "$DIR_NAME" || exit
     update_repo
 fi
+
+
+git clone --depth 1 https://github.com/iperov/DeepFaceLab.git

@@ -8,3 +8,4 @@ scikit-image
 scipy
 colorama
 pyqt5
+tensorflow
