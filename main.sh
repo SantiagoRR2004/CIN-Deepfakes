@@ -20,4 +20,7 @@ cp "$PICTURE" DeepFaceLab/workspace/data_src/00001.png
 cd DeepFaceLab/scripts && echo "png" | source ./3_extract_image_from_data_dst.sh && cd ../..
 
 # Extract faces from the source images (whole face) (1 face per image) (512 image size) (90 jepeg quality) (no debug)
-cd DeepFaceLab/scripts && printf "wf\n1\n512\n90\nn\n" | source ./4_data_src_extract_faces_S3FD.sh && cd ..
+cd DeepFaceLab/scripts && printf "wf\n1\n512\n90\nn\n" | source ./4_data_src_extract_faces_S3FD.sh && cd ../..
+
+# Extract faces from the destination images (whole face) (1 face per image) (512 image size) (90 jepeg quality) (no debug)
+cd DeepFaceLab/scripts && printf "wf\n1\n512\n90\nn\n" | source ./5_data_dst_extract_faces_S3FD.sh && cd ../..
