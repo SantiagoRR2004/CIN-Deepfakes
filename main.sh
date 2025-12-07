@@ -39,8 +39,13 @@ timeout --signal=SIGINT --kill-after=30 180 $DFL_PYTHON "$DFL_SRC/main.py" train
     --silent-start && \
 cd ../..
 
-# Merge the faces into the destination images (the name of the model is "face")
-cd DeepFaceLab/scripts && source ./7_merge_Quick96.sh && cd ../..
+# Merge the faces into the destination images (model is "face") (no interactive) (seamless-hist-match)
+# (255 Hist match threshold) (learned-prd mask mode) (0 erode mask modifier) (0 blur mask modifier)
+# (0 motion blur power) (0 output face scale modifier) (skip Color transfer to predicted face)
+# (sharpen mode None) (0 super resolution power) (0 image degrade by denoise power)
+# (0 image degrade by bicubic rescale power) (0 Degrade color power of final image) (max num workers)
+# printf "face\nn\n4\n255\n2\n0\n0\n0\n0\n\n0\n0\n0\n0\n0\n\n" |
+cd DeepFaceLab/scripts && source ./7_merge_Quick96.sh && cd ..
 
-Convert the merged images back to video
-cd DeepFaceLab/scripts && source ./8_merged_to_mp4.sh && cd ../..
+# Convert the merged images back to video (16 bitrate)
+cd DeepFaceLab/scripts && echo "16" | source ./8_merged_to_mp4.sh && cd ..
