@@ -9,3 +9,4 @@ scipy
 colorama
 pyqt5
 tensorflow
+pexpect
