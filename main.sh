@@ -36,8 +36,8 @@ timeout --signal=SIGINT --kill-after=30 180 $DFL_PYTHON "$DFL_SRC/main.py" train
     --model-dir "$DFL_WORKSPACE/model" \
     --model Quick96 \
     --no-preview \
-    --silent-start && \
-cd ../..
+    --silent-start
+cd ..
 
 # Merge the faces into the destination images
 python3 automateMerge.py
