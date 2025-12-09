@@ -1,7 +1,8 @@
 # The repositories
 DeepFaceLab/
-RVC/
+AudioCloning/
 
 # No examples
 *.mp4
 *.jpg
+*.wav
