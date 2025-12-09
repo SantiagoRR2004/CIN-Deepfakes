@@ -1,0 +1,21 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch
+torchvision
+torchaudio
+scipy
+librosa
+huggingface-hub
+munch
+einops
+descript-audio-codec
+gradio
+pydub
+resemblyzer
+jiwer
+transformers
+FreeSimpleGUI
+soundfile
+sounddevice
+modelscope
+funasr
+torchcodec

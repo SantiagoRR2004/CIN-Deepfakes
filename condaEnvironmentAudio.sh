@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variable to hold the environment name
-ENV="openvoice"
+ENV="audioCloning"
 
 # Check if conda is already installed
 if ! command -v conda &>/dev/null; then
@@ -35,16 +35,9 @@ eval "$(conda shell.bash hook)"
 conda activate ${ENV}
 conda install --yes pip
 
-# Install FFmpeg and its development libraries (required for PyAV)
-echo "Installing FFmpeg and development libraries..."
-conda install --yes -c conda-forge ffmpeg pkg-config
+# Copy requirementsAudio.txt to AudioCloning directory and install
+cp ../requirementsAudio.txt AudioCloning/requirements.txt
 
-# Set PKG_CONFIG_PATH to point to conda environment's pkgconfig directory
-export PKG_CONFIG_PATH="${CONDA_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
-echo "PKG_CONFIG_PATH set to: ${PKG_CONFIG_PATH}"
-
-cd OpenVoice
-pip install -e . # --no-deps .
+cd AudioCloning
+pip install -r requirements.txt
 cd ..
-
-# pip install -r requirementsAudio.txt
