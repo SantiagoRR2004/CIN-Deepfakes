@@ -36,7 +36,7 @@ conda activate ${ENV}
 conda install --yes pip
 
 # Copy requirementsAudio.txt to AudioCloning directory and install
-cp ../requirementsAudio.txt AudioCloning/requirements.txt
+cp requirementsAudio.txt AudioCloning/requirements.txt
 
 cd AudioCloning
 pip install -r requirements.txt

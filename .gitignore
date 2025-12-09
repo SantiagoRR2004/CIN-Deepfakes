@@ -6,3 +6,6 @@ AudioCloning/
 *.mp4
 *.jpg
 *.wav
+
+# Other files
+checkpoints/
