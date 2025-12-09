@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variable to hold the environment name
-ENV="rvcEnvironment"
+ENV="openvoice"
 
 # Check if conda is already installed
 if ! command -v conda &>/dev/null; then
@@ -24,7 +24,7 @@ fi
 # Check if the environment already exists
 if ! conda info --envs | grep -q "^${ENV}"; then
     echo "Creating conda environment '${ENV}'..."
-    conda create --yes --name ${ENV} python=3.10
+    conda create --yes --name ${ENV} python=3.9
 else
     echo "Conda environment '${ENV}' already exists."
 fi
@@ -43,8 +43,8 @@ conda install --yes -c conda-forge ffmpeg pkg-config
 export PKG_CONFIG_PATH="${CONDA_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 echo "PKG_CONFIG_PATH set to: ${PKG_CONFIG_PATH}"
 
-cd RVC
-pip install . # --no-deps .
+cd OpenVoice
+pip install -e . # --no-deps .
 cd ..
 
-pip install -r requirementsAudio.txt
+# pip install -r requirementsAudio.txt

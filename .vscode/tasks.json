@@ -20,9 +20,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Download Retrieval-based-Voice-Conversion",
+      "label": "Download OpenVoice",
       "type": "shell",
-      "command": "bash downloadRVC.sh",
+      "command": "bash downloadOpenVoice.sh",
       "group": {
         "kind": "build",
         "isDefault": true
