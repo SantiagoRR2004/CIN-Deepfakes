@@ -20,9 +20,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Download OpenVoice",
+      "label": "Download AudioCloning",
       "type": "shell",
-      "command": "bash downloadOpenVoice.sh",
+      "command": "bash downloadAudioCloning.sh",
       "group": {
         "kind": "build",
         "isDefault": true
