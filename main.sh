@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variable to hold the environment name
-PICTURE="image.jpg"
+VIDEO_SOURCE="sample.mp4"
 VIDEO="video.mp4"
 
 # Activate the conda environment (source it so conda activation persists)
@@ -13,8 +13,11 @@ cd DeepFaceLab/scripts && source ./1_clear_workspace.sh && cd ..
 # Copy the video to data_dst file
 cp "$VIDEO" DeepFaceLab/workspace/data_dst.mp4
 
-# Copy the picture to data_src folder
-cp "$PICTURE" DeepFaceLab/workspace/data_src/00001.png
+# Copy the video source to data_src folder
+cp "$VIDEO_SOURCE" DeepFaceLab/workspace/data_src.mp4
+
+# Extract images from the source video (png format)
+cd DeepFaceLab/scripts && echo "png" | source ./2_extract_image_from_data_src.sh && cd ../..
 
 # Extract images from the video (png format)
 cd DeepFaceLab/scripts && echo "png" | source ./3_extract_image_from_data_dst.sh && cd ../..
@@ -28,7 +31,7 @@ cd DeepFaceLab/scripts && printf "wf\n1\n512\n90\nn\n" | source ./5_data_dst_ext
 # Train the model (Quick96) - automatically stops after the timeout
 cd DeepFaceLab/scripts && source env.sh && \
 printf "face\n" | \
-timeout --signal=SIGINT --kill-after=30 180 $DFL_PYTHON "$DFL_SRC/main.py" train \
+timeout --signal=SIGINT --kill-after=30 10800 $DFL_PYTHON "$DFL_SRC/main.py" train \
     --training-data-src-dir "$DFL_WORKSPACE/data_src/aligned" \
     --training-data-dst-dir "$DFL_WORKSPACE/data_dst/aligned" \
     --pretraining-data-dir "$DFL_SRC/pretrain_CelebA" \
