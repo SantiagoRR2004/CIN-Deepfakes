@@ -32,7 +32,7 @@ cmd = (
     f"--output-mask-dir {DFL_WORKSPACE}/data_dst/merged_mask "
     f"--aligned-dir {DFL_WORKSPACE}/data_dst/aligned "
     f"--model-dir {DFL_WORKSPACE}/model "
-    f"--model SAEHD"
+    f"--model Quick96"
 )
 
 # Spawn the process
