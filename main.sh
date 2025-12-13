@@ -22,22 +22,24 @@ cd DeepFaceLab/scripts && echo "png" | source ./2_extract_image_from_data_src.sh
 # Extract images from the video (png format)
 cd DeepFaceLab/scripts && echo "png" | source ./3_extract_image_from_data_dst.sh && cd ../..
 
-# Extract faces from the source images (whole face) (1 face per image) (512 image size) (90 jepeg quality) (no debug)
-cd DeepFaceLab/scripts && printf "wf\n1\n512\n90\nn\n" | source ./4_data_src_extract_faces_S3FD.sh && cd ../..
+# Extract faces from the source images (head) (1 face per image) (512 image size) (90 jepeg quality) (no debug)
+cd DeepFaceLab/scripts && printf "head\n1\n512\n90\nn\n" | source ./4_data_src_extract_faces_S3FD.sh && cd ../..
 
-# Extract faces from the destination images (whole face) (1 face per image) (512 image size) (90 jepeg quality) (no debug)
-cd DeepFaceLab/scripts && printf "wf\n1\n512\n90\nn\n" | source ./5_data_dst_extract_faces_S3FD.sh && cd ../..
+# Extract faces from the destination images (head) (1 face per image) (512 image size) (90 jepeg quality) (no debug)
+cd DeepFaceLab/scripts && printf "head\n1\n512\n90\nn\n" | source ./5_data_dst_extract_faces_S3FD.sh && cd ../..
 
-# Train the model (Quick96) - automatically stops after the timeout
+# Download FFHQ pretraining dataset (if not already downloaded)
+cd DeepFaceLab/scripts && source ./4.1_download_FFHQ.sh && cd ../..
+
+# Train the model (SAEHD) - automatically stops after the timeout
 cd DeepFaceLab/scripts && source env.sh && \
 printf "face\n" | \
 timeout --signal=SIGINT --kill-after=30 10800 $DFL_PYTHON "$DFL_SRC/main.py" train \
     --training-data-src-dir "$DFL_WORKSPACE/data_src/aligned" \
     --training-data-dst-dir "$DFL_WORKSPACE/data_dst/aligned" \
-    --pretraining-data-dir "$DFL_SRC/pretrain_CelebA" \
-    --pretrained-model-dir "$DFL_SRC/pretrain_Quick96" \
+    --pretraining-data-dir "$DFL_SRC/pretrain_FFHQ" \
     --model-dir "$DFL_WORKSPACE/model" \
-    --model Quick96 \
+    --model SAEHD \
     --no-preview \
     --silent-start
 cd ..
