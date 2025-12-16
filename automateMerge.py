@@ -47,8 +47,8 @@ answers = [
     "4",  # Sharpen mode
     "255",  # Hist match threshold
     "2",  # Mask mode
-    "0",  # Erode mask modifier
-    "0",  # Blur mask modifier
+    "20",  # Erode mask modifier
+    "100",  # Blur mask modifier
     "0",  # Motion blur power
     "0",  # Output face scale modifier
     "",  # Color transfer (empty for default/skip)
