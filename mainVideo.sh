@@ -5,7 +5,7 @@ VIDEO_SOURCE="sample.mp4"
 VIDEO="video.mp4"
 
 # Activate the conda environment (source it so conda activation persists)
-source ./condaEnvironment.sh
+source ./condaEnvironmentVideo.sh
 
 # Initial setup
 cd DeepFaceLab/scripts && source ./1_clear_workspace.sh && cd ..

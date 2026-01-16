@@ -34,4 +34,4 @@ eval "$(conda shell.bash hook)"
 
 conda activate ${ENV}
 conda install --yes pip
-pip install -r requirements.txt
+pip install -r requirementsVideo.txt
