@@ -29,3 +29,5 @@ ffmpeg -i output.mp4 -i output.wav -c:v copy -c:a aac outputF.mp4
 ```
 
 ### Together
+
+The script [`main.sh`](../main.sh) will generate [`outputF.mp4`](../outputF.mp4) when executed. It requires the same files as the video script because it extracts audio from the video files.
