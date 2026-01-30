@@ -49,7 +49,10 @@ cd ..
 python3 automateMerge.py
 
 # Convert the merged images back to video (16 bitrate)
-cd DeepFaceLab/scripts && echo "16" | source ./8_merged_to_mp4.sh && cd ..
+cd DeepFaceLab/scripts && echo "16" | source ./8_merged_to_mp4.sh && cd ../..
+
+# Copy the final output to the main folder
+cp DeepFaceLab/workspace/result.mp4 ./output.mp4
 
 # # Train the SAEHD model (model name face) (Autobackup every 0 hour) (no write preview history)
 # # (Target iterations: 90) (no Flip SRC faces randomly) (Flip DST faces randomly)
